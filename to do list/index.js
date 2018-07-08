@@ -4,7 +4,7 @@ const timerDisplay = document.querySelector('.display-time-left');
 // const buttons = document.querySelectorAll('[data-time]');
 const taskName = document.querySelector('.task-name');
 
-
+//form handling
 document.taskForm.addEventListener('submit', function(e) {
   e.preventDefault();
   const mins = this.minutes.value;
@@ -18,12 +18,12 @@ function addTask(seconds, task) {
     //create main div
     const div = document.createElement("div");
     div.setAttribute("class", "container");
-    //create task name span
+    //create task name div
     const taskName = document.createElement("div");
     taskName.setAttribute("class", "task-name");
     //show task name
     const taskDisplay = document.createTextNode(task);
-    //create time span
+    //create time div
     const taskTime = document.createElement("div");
     taskTime.setAttribute("class", "display-time-left");
     //show task time
@@ -41,10 +41,13 @@ function addTask(seconds, task) {
     const active = document.querySelectorAll('.container')[0];
     active.setAttribute('id', 'active');
   }
-  timer(seconds, task);
+
 }
 
-function timer(seconds, task) {
+function timer() {
+	if (document.querySelectorAll('.container').length > 0){
+	const task = document.getElementById('active');
+	task.getElementsByClassName('task-name').innerHTML;
   clearInterval(countdown);
   const now = Date.now();
   const then = now + seconds * 1000;
@@ -60,6 +63,7 @@ function timer(seconds, task) {
     }
     displayTimeLeft(secondsLeft);
   }, 1000);
+}
 }
 
 function displayTimeLeft(seconds) {
