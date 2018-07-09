@@ -15,39 +15,27 @@ document.taskForm.addEventListener('submit', function(e) {
 
 function addTask(seconds, task) {
   if (task !== '' && seconds !== '') {
-    //create main div
-    const div = document.createElement("div");
-    div.setAttribute("class", "container");
-    //create task name div
-    const taskName = document.createElement("div");
-    taskName.setAttribute("class", "task-name");
-    //show task name
-    const taskDisplay = document.createTextNode(task);
-    //create time div
-    const taskTime = document.createElement("div");
-    taskTime.setAttribute("class", "display-time-left");
-    //show task time
     const minutes = Math.floor(seconds / 60);
     const remainderSeconds = seconds % 60;
-    const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
-    const timeDisplay = document.createTextNode(display);
-    //combine above elements
-    taskName.appendChild(taskDisplay);
-    // taskTime.appendChild(timeDisplay);
-    div.appendChild(taskName);
-    div.appendChild(taskTime);
-    document.getElementById("main").appendChild(div);
-    //check for previously added task
+    const taskDiv = document.createElement('div');
+    taskDiv.setAttribute('class', 'container');
+    taskDiv.innerHTML = `
+      <span class = seconds style="display:none">${seconds}</span>
+      <p><span>${task}</span></p>
+      <p><span class = 'display-time-left'>${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}</span></p>
+    `;
+    document.getElementById('main').appendChild(taskDiv);
     const active = document.querySelectorAll('.container')[0];
     active.setAttribute('id', 'active');
   }
-
+  timer();
 }
 
 function timer() {
 	if (document.querySelectorAll('.container').length > 0){
-	const task = document.getElementById('active');
-	task.getElementsByClassName('task-name').innerHTML;
+	const activeTask = document.getElementById('active');
+  console.log(activeTask);
+	const seconds = activeTask.getElementsByClassName('seconds')[0].innerText;
   clearInterval(countdown);
   const now = Date.now();
   const then = now + seconds * 1000;
@@ -57,21 +45,22 @@ function timer() {
   countdown = setInterval(() => {
     const secondsLeft = Math.round((then - Date.now()) / 1000);
     if (secondsLeft < 0) {
+      activeTask.parentNode.removeChild(activeTask);
       clearInterval(countdown);
-
       return;
     }
-    displayTimeLeft(secondsLeft);
+    displayTimeLeft(secondsLeft, secondsLeft);
   }, 1000);
 }
 }
 
-function displayTimeLeft(seconds) {
+function displayTimeLeft(seconds, newSeconds) {
   const minutes = Math.floor(seconds / 60);
   const remainderSeconds = seconds % 60;
   const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
   document.title = display;
   // timerDisplay.textContent = display;
+  document.getElementById("active").querySelector('.seconds').innerHTML = newSeconds;
   document.getElementById("active").querySelector('.display-time-left').innerHTML = display;
 
 }
