@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timer</title>
+</head>
+<body>
+	<div class="timer">
+		<div class="timer-controls">
+			<button data-time="0" class="timer-button">Reset</button>
+			<button data-time="20" class="timer-button">20 secs</button>
+			<button data-time="300" class="timer-button">Work 5</button>
+			<button data-time="900" class="timer-button">Quick 15</button>
+			<button data-time="1200" class="timer-button">Snack 20</button>
+			<button data-time="3600" class="timer-button">Lunch Hour</button>
+			
+			<form name="customForm" id="custom">
+				<input type="text" name="task" placeholder="Enter Task">
+				<input type="text" name="minutes" placeholder="Enter Minutes">
+				<input type="radio" name="break"><span>Break after</span>
+				<input type="submit" name="submit">
+			</form>
+		</div>
+		<div class="display active">
+			<h1 class="task-name">Add a task to begin</h1>
+			<h1 class="display-time-left">00:00</h1>
+			<p class="display-time-end"></p>
+		</div>
+	</div>
+
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
