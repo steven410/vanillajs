@@ -6,7 +6,7 @@ const taskName = document.querySelector('.task-name');
 
 function addTask(e){
 	e.preventDefault();
-	
+
 }
 
 function timer(seconds, task) {
@@ -32,7 +32,7 @@ function displayTimeLeft(seconds){
   const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
   document.title = display;
   timerDisplay.textContent = display;
-  
+
 }
 
 function displayTask(task){
@@ -57,7 +57,7 @@ document.customForm.addEventListener('submit', function(e){
 	e.preventDefault();
 	const mins = this.minutes.value;
 	const task = this.task.value;
-	timer(mins * 60, task);	
+	timer(mins * 60, task);
 	console.log(task);
 	this.reset();
 	});

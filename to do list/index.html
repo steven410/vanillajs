@@ -2,17 +2,23 @@
 <html>
 <head>
 	<title>to do list</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<form name="taskForm" >
-		<input type="text" name="task">
-		<input type="text" name="minutes">
-		<input type="submit" name="submit">
+	<div id="container">
+	<div id="form">
+	<form name="taskForm">
+		<input type="text" name="task" placeholder="Add a task">
+		<input type="text" name="minutes" placeholder="Time (minutes)" pattern="\d*">
+		<input type="submit" name="submit" value="Start">
 	</form>
-	<div id="main">
-		
+</div>
+	<div id="task-list">
+		<div id="directions">
+			<p>Enter a task and time to begin.</p>
+		</div>
 	</div>
-
+</div>
 	<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
