@@ -1,3 +1,7 @@
+html {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0 auto;
 }
@@ -22,7 +26,7 @@ body {
   margin-top: 20px;
   display: grid;
   grid-gap: 1rem;
-  grid-template-rows: repeat(10, 150px);
+  grid-template-rows: repeat(10, 1fr);
 
 }
 
@@ -30,14 +34,22 @@ body {
   width: 100%;
   border-top: 4px solid #23B5D3;
   padding: 16px;
-  box-sizing: border-box;
-  font-size: 150%;
+  font-size: 1.5rem;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+.task-name {
+  margin-bottom: 0;
+}
+
+.display-time-left {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 #directions{
   text-align: center;
-  font-size: 2em;
+  font-size: 1.2rem;
   font-family: Helvetica, sans-serif;
   color: #23B5D3;
 }
@@ -45,15 +57,15 @@ body {
 #active {
   background-color: #23B5D3;
   color: #ffffff;
-  font-size: 36px;
+  font-size: 2.5rem;
 }
 
 .end-time {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 #form {
-  padding: 8px;
+  padding: 0.5rem;
   box-sizing: border-box;
   margin: auto;
   width: 100%;
