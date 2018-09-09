@@ -6,14 +6,10 @@ body {
   margin: 0 auto;
 }
 
-#container {
+.container {
   margin: auto;
   width: 60%;
   font-family: sans-serif;
-}
-
-.done {
-  display: none;
 }
 
 #header {
@@ -40,6 +36,17 @@ body {
 
 .task-name {
   margin-bottom: 0;
+  margin-top: 0;
+}
+
+.task-done {
+  display: none;
+}
+
+.task-active {
+  background-color: #23B5D3;
+  color: #ffffff;
+  font-size: 2.5rem;
 }
 
 .display-time-left {
@@ -47,21 +54,16 @@ body {
   margin-bottom: 0;
 }
 
+.end-time {
+  font-size: 1rem;
+  margin-top: 0;
+}
+
 #directions{
   text-align: center;
   font-size: 1.2rem;
   font-family: Helvetica, sans-serif;
   color: #23B5D3;
-}
-
-#active {
-  background-color: #23B5D3;
-  color: #ffffff;
-  font-size: 2.5rem;
-}
-
-.end-time {
-  font-size: 1rem;
 }
 
 #form {

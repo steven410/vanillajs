@@ -29,11 +29,11 @@ function addTask(seconds, task) {
     const taskDiv = document.createElement('div');
     taskDiv.setAttribute('class', 'task');
     taskDiv.innerHTML = `
+      <input class='delete-task' type="button" value="X"/>
       <span class = seconds style="display:none">${seconds}</span>
       <h3 class = 'task-name' >${task}</h1>
       <h1 class = 'display-time-left'>${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}</h2>
-      <p><span class = 'end-time'></span></p>
-      <input class='delete-task' type="button" value="X"/>
+      <span class = 'end-time'></span>
     `;
     document.getElementById('task-list').appendChild(taskDiv);
   }
@@ -95,13 +95,6 @@ function displayEndTime(timestamp) {
   document.getElementById("active").querySelector('.end-time').innerHTML = `Continue until: ${hour > 12 ? hour - 12 : hour}:${minutes < 10 ? '0' : ''}${minutes}`
 
 }
-
-//add 5 min to task
-function addFive() {
-  const current = document.getElementsByClassName('display-time-left')[0].innerHTML
-  console.log(current)
-}
-
 
 
 
